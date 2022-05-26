@@ -4,6 +4,7 @@ from tkinter import font
 from PIL import Image, ImageTk
 from karyawan import Karyawan
 from train import Train
+from face_recognition import Face_Recognition
 import os
 
 
@@ -47,11 +48,12 @@ class Face_Recognition_System:
         img4 = img4.resize((200, 200), Image.ANTIALIAS)
         self.photoimg4 = ImageTk.PhotoImage(img4)
 
-        b2 = Button(bg_img, image=self.photoimg4, bd=3, relief=RIDGE)
+        b2 = Button(bg_img, image=self.photoimg4, bd=3,
+                    relief=RIDGE, command=self.face_recognition_details)
         b2.place(x=460, y=70, width=200, height=200)
 
         b2_1 = Button(bg_img, text="Face Detector", cursor="hand2", font=('arial', 15, 'bold'),
-                      fg="white", bg="blue")
+                      fg="white", bg="blue", command=self.face_recognition_details)
         b2_1.place(x=460, y=230, width=200, height=40)
 
         # Button Attendence
@@ -142,6 +144,10 @@ class Face_Recognition_System:
     def train_details(self):
         self.new_window = Toplevel(self.root)
         self.app = Train(self.new_window)
+
+    def face_recognition_details(self):
+        self.new_window = Toplevel(self.root)
+        self.app = Face_Recognition(self.new_window)
 
 
 if __name__ == "__main__":

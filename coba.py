@@ -5,7 +5,7 @@ mydb = mysql.connector.connect(
     user='root',
     password='root',
     port='3306',
-    database='test'
+    database='deteksi_wajah'
 )
 
 mycursor = mydb.cursor()
@@ -16,5 +16,3 @@ users = mycursor.fetchall()
 
 for user in users:
     print(user)
-    print('username ' + user[1])
-    print('password ' + user[2])

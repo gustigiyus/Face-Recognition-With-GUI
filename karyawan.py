@@ -404,11 +404,11 @@ class Karyawan:
                 myresult = mycursor.fetchall()
                 id = 0
                 for x in myresult:
-                    id+1
+                    id += 1
                 mycursor.execute(
                     "UPDATE karyawan SET department=%s,nama_lengkap=%s,gender=%s,alamat=%s,tahun_masuk=%s,telepon=%s,email=%s,photo=%s WHERE id_karyawan=%s", (
                         self.var_dep.get(),
-                        self.var_nama.get(),
+                        self.var_nama.get(), 
                         self.var_gender.get(),
                         self.var_alamat.get(),
                         self.var_tahun.get(),
